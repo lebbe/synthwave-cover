@@ -3,10 +3,11 @@
     "start": "snowpack dev",
     "build": "snowpack build",
     "test": "web-test-runner \"src/**/*.test.jsx\"",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx}\""
+    "format": "npx eslint --write \"src/**/*.{js,jsx}\"",
+    "lint": "npx eslint \"src/**/*.{js,jsx}\""
   },
   "dependencies": {
+    "@snowpack/plugin-build-script": "^2.1.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
@@ -17,7 +18,17 @@
     "@testing-library/react": "^11.0.0",
     "@web/test-runner": "^0.12.0",
     "chai": "^4.2.0",
-    "prettier": "^2.0.5",
+    "eslint": "^7.21.0",
+    "eslint-plugin-react": "^7.22.0",
     "snowpack": "^3.0.1"
-  }
+  },
+  "name": "synthwave-cover-creator",
+  "description": " 🌞 🌴 🦩 Make Synthwave Covers in your browser! 🦩 🌴 🌞 ",
+  "version": "0.1.0",
+  "main": "snowpack.config.js",
+  "keywords": [
+    "synthwave"
+  ],
+  "author": "Lars-Erik Bruce",
+  "license": "MIT"
 }
