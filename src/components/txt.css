@@ -1,0 +1,22 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Mr+Dafoe&family=Audiowide&family=Pacifico&family=Lobster+Two:wght@700&family=Press+Start+2P&display=swap');
+
+.retro-txt {
+  font-family: monoton;
+  color: #fcedfc;
+  text-shadow: 0 0 8px #d40e95;
+  font-size: 14vw;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 48%;
+  left: 0;
+}
+
+@media only screen and (orientation: landscape) {
+  .retro-txt {
+    font-size: 14vh;
+  }
+}

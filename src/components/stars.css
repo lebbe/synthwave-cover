@@ -1,0 +1,17 @@
+
+.retro-stars {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.retro-star {
+  height: 0.5%;
+  width: 0.2%;
+  background-color: #4b187e;
+  box-shadow: 0 0 3px 1px white;
+  position: absolute;
+
+}
