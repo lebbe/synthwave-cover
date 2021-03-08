@@ -74,6 +74,10 @@ button.controller__component-title__delete-button {
     max-width: 100vw;
     overflow-y: scroll;
   }
+
+  .controller-panel {
+    min-width: 75vw;
+  }
 }
 
 .controller__form-item {
@@ -137,8 +141,4 @@ input[type="checkbox"] {
 
 input:focus {
   background: rgba(255, 255, 255, 0.28);
-}
-
-.config__label {
-
 }

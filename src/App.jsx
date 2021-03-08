@@ -40,7 +40,7 @@ function Controls(props) {
 				</select>
 			</label>
 
-			<div classNames="controller-panels">
+			<div className="controller-panels">
 				{props.layers.map((layer, i) => {
 					const config = layers[layer.name].config
 					return (
