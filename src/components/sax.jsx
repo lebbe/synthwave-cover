@@ -2,8 +2,6 @@
 
 import React from 'react'
 
-import './sax.css'
-
 function Sax(props) {
 	const rotateY = props.flip ? '180' : '0'
 	return (

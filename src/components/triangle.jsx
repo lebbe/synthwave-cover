@@ -2,8 +2,6 @@
 
 import React from 'react'
 
-import './triangle.css'
-
 function Triangle(props) {
 	return (
 		<div className="retro-triangle svg-canvas"  style={{top: props.top + '%', left: props.left + '%', width: props.size + '%'}}>

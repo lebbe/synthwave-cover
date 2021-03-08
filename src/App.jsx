@@ -53,12 +53,11 @@ function Controls(props) {
 								{Object.keys(config).map((name, j) => {
 									const { type, min, max, step } = config[name]
 
-
 									return (
 										<label key={j} className="controller__form-item">
 											<span className="config__label">{name}</span>
 											{type === 'select' ? (<select value={layer.props[name]} onChange={(e) => props.changeSetting(i, name, e.target.value)}>
-												{config[name].values.map((val) => <option value={val}>{val}</option>)}
+												{config[name].values.map((val) => <option key={val} value={val}>{val}</option>)}
 											</select>)
 												: (<input
 													onChange={(e) => {
