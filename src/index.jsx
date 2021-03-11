@@ -2,10 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App.jsx'
 import './index.css'
+import { recoverHash } from './utils/url.js'
+
+
+
+
+const layers = recoverHash([])
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<App layers={layers} />
 	</React.StrictMode>,
 	document.getElementById('synthwaveCover'),
 )

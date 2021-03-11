@@ -8,6 +8,7 @@ import Stars from './components/stars'
 import Sunset from './components/sunset'
 import Triangle from './components/triangle'
 import Txt from './components/txt'
+import { replaceHash } from './utils/url'
 
 const layers = {
 	Matrix,
@@ -83,7 +84,7 @@ function Controls(props) {
 class App extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {layers: []}
+		this.state = {layers: props.layers || []}
 		this.addLayer = this.addLayer.bind(this)
 		this.removeLayer = this.removeLayer.bind(this)
 		this.changeSetting = this.changeSetting.bind(this)
@@ -117,6 +118,9 @@ class App extends React.Component {
 	}
 
 	render() {
+
+		replaceHash(this.state.layers)
+
 		return (
 			<div>
 				<Cover layers={this.state.layers} />
