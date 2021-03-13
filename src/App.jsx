@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import Matrix from './components/matrix'
 import Sax from './components/sax'
@@ -81,53 +81,38 @@ function Controls(props) {
 }
 
 
-class App extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {layers: props.layers || []}
-		this.addLayer = this.addLayer.bind(this)
-		this.removeLayer = this.removeLayer.bind(this)
-		this.changeSetting = this.changeSetting.bind(this)
-	}
+function App(props) {
+	const [layers, setLayers] = useState(props.layers || [])
 
-	addLayer(e) {
+	function addLayer(e) {
 		const name = e.target.value
 		const layer = elements[name]
 		const props = {}
 
 		Object.keys(layer.config).forEach(key => props[key] = layer.config[key].value)
 
-		this.setState({
-			layers: [...this.state.layers, {name, props}]
-		})
+		setLayers([...layers, {name, props}])
 	}
 
-	removeLayer(index) {
-		this.setState({
-			layers: this.state.layers.filter((_, i) => i !== index)
-		})
+	function removeLayer(index) {
+		setLayers(layers.filter((_, i) => i !== index))
 	}
 
-	changeSetting(index, name, value) {
-		const clone = JSON.parse(JSON.stringify(this.state.layers[index]))
+	function changeSetting(index, name, value) {
+		const clone = JSON.parse(JSON.stringify(layers[index]))
 		clone.props[name] = value
 
-		this.setState({
-			layers: [...this.state.layers.slice(0, index), clone, ...this.state.layers.slice(index + 1)]
-		})
+		setLayers([...layers.slice(0, index), clone, ...layers.slice(index + 1)])
 	}
 
-	render() {
+	replaceHash(layers)
 
-		replaceHash(this.state.layers)
-
-		return (
-			<div>
-				<Cover layers={this.state.layers} />
-				<Controls addLayer={this.addLayer} changeSetting={this.changeSetting} removeLayer={this.removeLayer} layers={this.state.layers} />
-			</div>
-		)
-	}
+	return (
+		<div>
+			<Cover layers={layers} />
+			<Controls addLayer={addLayer} changeSetting={changeSetting} removeLayer={removeLayer} layers={layers} />
+		</div>
+	)
 }
 
 export default App
