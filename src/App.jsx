@@ -10,7 +10,7 @@ import Triangle from './components/triangle'
 import Txt from './components/txt'
 import { replaceHash } from './utils/url'
 
-const layers = {
+const elements = {
 	Matrix,
 	Sax,
 	Stars,
@@ -22,7 +22,7 @@ const layers = {
 function Cover(props) {
 	return (<div className="container">
 		{props.layers.map(layer => {
-			const Layer = layers[layer.name].component
+			const Layer = elements[layer.name].component
 			const props = layer.props
 			// eslint-disable-next-line react/jsx-key
 			return (<Layer {...props} />)
@@ -37,13 +37,13 @@ function Controls(props) {
 			<label>
 				<select value="0" onChange={props.addLayer}>
 					<option value="0">Add layer</option>
-					{(Object.keys(layers).map(layerKey => <option key={layerKey} value={layerKey}>{layerKey}</option>))}
+					{(Object.keys(elements).map(layerKey => <option key={layerKey} value={layerKey}>{layerKey}</option>))}
 				</select>
 			</label>
 
 			<div className="controller-panels">
 				{props.layers.map((layer, i) => {
-					const config = layers[layer.name].config
+					const config = elements[layer.name].config
 					return (
 						<div className="controller-panel" key={i}>
 							<div className="controller__component-title">
@@ -92,7 +92,7 @@ class App extends React.Component {
 
 	addLayer(e) {
 		const name = e.target.value
-		const layer = layers[name]
+		const layer = elements[name]
 		const props = {}
 
 		Object.keys(layer.config).forEach(key => props[key] = layer.config[key].value)
