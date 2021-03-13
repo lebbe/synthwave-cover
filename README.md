@@ -1,6 +1,7 @@
-# New Project
+# Synthwave Cover Creator
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+This is a little web-based tool which makes you create synthwave covers. Everything is done with HTML, CSS and SVG,
+and the layout will always fit into a reponsibe 1:1 ratio. 
 
 ## Available Scripts
 
@@ -14,12 +15,11 @@ You will also see any lint errors in the console.
 
 ### npm run build
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+Builds a static copy of Synthwave Cover Creator to the `build/` folder.
 
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.js` config file.
 
 ### npm test
 
-Launches the application test runner.
+Launches the application test runner. I haven't writen any decent tests yet, though. I will as soon as bugs start to crawl out.
+
 Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
