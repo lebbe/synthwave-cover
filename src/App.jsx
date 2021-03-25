@@ -30,10 +30,14 @@ function Cover(props) {
 	</div>)
 }
 
-function Controls(props) {
-	// TODO state hidden/not hidden
+function Controller(props) {
+	
+	const [open, setOpen] = useState(true)
+	
 	return (
-		<div className="controller">
+		<details className="controller" open={open}>
+			<summary className="controller-toggle" onClick={() => setOpen(!open)}>
+			</summary>
 			<label>
 				<select value="0" onChange={props.addLayer}>
 					<option value="0">Add layer</option>
@@ -77,7 +81,7 @@ function Controls(props) {
 						</div>
 					)})}
 			</div>
-		</div>)
+		</details>)
 }
 
 
@@ -110,7 +114,7 @@ function App(props) {
 	return (
 		<div>
 			<Cover layers={layers} />
-			<Controls addLayer={addLayer} changeSetting={changeSetting} removeLayer={removeLayer} layers={layers} />
+			<Controller addLayer={addLayer} changeSetting={changeSetting} removeLayer={removeLayer} layers={layers} />
 		</div>
 	)
 }
